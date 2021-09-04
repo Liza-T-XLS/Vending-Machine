@@ -1,0 +1,14 @@
+@import 'reset';
+@import 'vars';
+
+body {
+  background-color: $mainBackgroundColor;
+  font-family: $mainFontFamily;
+  color: $mainFontColor;
+  font-size: $mainFontSize;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
