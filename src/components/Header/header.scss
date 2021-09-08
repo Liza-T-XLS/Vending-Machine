@@ -1,3 +1,33 @@
+@import '../../styles/vars';
+
 .header {
   text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  h1 {
+    padding: 2rem;
+    width: fit-content;
+    font-family: $signFontFamily;
+    border: 0.2rem solid #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #f4dc26,
+    0 0 0.8rem #f4dc26,
+    0 0 2.8rem #f4dc26,
+    inset 0 0 1.3rem #f4dc26;
+    letter-spacing: 1rem;
+    color: #fff;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #f4dc26,
+    0 0 82px #f4dc26,
+    0 0 92px #f4dc26,
+    0 0 102px #f4dc26,
+    0 0 151px #f4dc26;
+  }
 }

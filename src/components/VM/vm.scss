@@ -1,0 +1,99 @@
+@import '../../styles/vars';
+
+.vm {
+  background-color: #f4dc26;
+  margin: 1rem;
+  height: 85vh;
+  border: solid 2px black;
+  border-radius: 15px;
+  display: flex;
+  .left {
+    width: 60%;
+    .sign {
+      margin: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(20% - 4rem);
+      font-family: $signFontFamily;
+      font-size: 2rem;
+      background-color: #fff;
+      color: black;
+      letter-spacing: 1rem;
+      border: 0.2rem solid #fff;
+      border-radius: 1rem;
+      box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #f4dc26,
+      0 0 0.8rem #f4dc26,
+      0 0 2.8rem #f4dc26,
+      inset 0 0 1.3rem #f4dc26;
+    }
+    .products {
+      margin: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 60%;
+      .product {
+        width: calc((100% / 3) - 2rem);
+        height: calc((100% / 3) - 2rem);
+        box-sizing: border-box;
+        margin: 1rem;
+        border: solid 2px black;
+        .productImg {
+          height: 100%;
+        }
+      }
+    }
+    .pickupBox {
+      margin: 2rem;
+      height: calc(20% - 4rem);
+      border: solid 2px black;
+    }
+  }
+  .right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    .screen {
+      padding: 1rem;
+      margin: 1rem;
+      height: 50%;
+      border: solid 2px black;
+      .pad {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .padNumber {
+          width: calc((100% / 3) - 2rem);
+          height: calc((100% / 3) - 2rem);
+          box-sizing: border-box;
+          margin: 1rem;
+          border: solid 2px black;
+        }
+      }
+    }
+    .cardReader {
+      margin: 1rem;
+      height: 10%;
+      width: 20%;
+      border: solid 2px black;
+      align-self: center;
+    }
+    .refillButton {
+      margin: 1rem;
+      height: 10%;
+      width: 20%;
+      align-self: center;
+      border: solid 2px black;
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion) { 
+  .signSpan {
+    animation: none;
+  }
+}
