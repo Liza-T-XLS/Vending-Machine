@@ -5,6 +5,8 @@ import React from 'react';
 import './vm.scss';
 
 import soda from '../../images/soda.svg';
+import creditCard from '../../images/creditCard.svg';
+import wheelbarrow from '../../images/wheelbarrow.svg';
 
 // == Component
 
@@ -55,7 +57,9 @@ const VM = () => (
       </div>
       <div className="right">
         <div className="screen">
-          <p className="instructions">Please select your product</p>
+          <div className="instructions">
+            <p className="message">Please select your product</p>
+          </div>
           <div className="pad">
             <div className="padNumber">001</div>
             <div className="padNumber">002</div>
@@ -67,9 +71,17 @@ const VM = () => (
             <div className="padNumber">008</div>
             <div className="padNumber">009</div>
           </div>
+          <div className="selectedProduct">
+            <img className="selectedProductImg" src={soda} alt="selected product" />
+            <p className="unitLeft">3 units left</p>
+          </div>
         </div>
-        <div className="cardReader">Card Reader</div>
-        <div className="refillButton">Refill Button</div>
+        <div className="cardReader">
+          <img className="creditCardImg" src={creditCard} alt="creditCard" />
+        </div>
+        <div className="refillButton">
+          <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow" />
+        </div>
       </div>
     </div>
   </main>

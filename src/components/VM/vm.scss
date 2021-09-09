@@ -88,14 +88,18 @@
     .screen {
       font-family: $secondaryFontFamily;
       font-weight: bold;
-      padding: 1rem;
       margin: 2rem;
-      height: 50%;
+      height: 45%;
       border-radius: 0.5rem;
       background-color: #fff;
       animation: pulsate 0.11s ease-in-out infinite alternate;
       .instructions {
-        margin: 1rem;
+        padding: 1rem;
+        margin: 0.65rem;
+        border-top-left-radius: 0.4rem;
+        border-top-right-radius: 0.4rem;
+        background-color: black;
+        color: #f4dc26;
       }
       .pad {
         display: grid;
@@ -105,7 +109,7 @@
         row-gap: 1rem;
         justify-content: center;
         align-items: center;
-        margin: 2rem;
+        margin: 1rem;
         .padNumber {
           box-sizing: border-box;
         }
@@ -130,20 +134,48 @@
           inset 0 0 1rem #317ed0;
         }
       }
+      .selectedProduct {
+        .selectedProductImg {
+          height: 3rem;
+          margin-bottom: 0.1rem;
+        }
+      }
     }
     .cardReader {
       margin: 1rem;
       height: 10%;
       width: 20%;
-      border: solid 2px black;
       align-self: center;
+      background-color: #fff;
+      box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #f4dc26,
+      0 0 0.8rem #f4dc26,
+      0 0 2.8rem #f4dc26,
+      inset 0 0 1.3rem #f4dc26;
+      border-radius: 1rem;
+      .creditCardImg {
+        height: 75%;
+        padding: 0.5rem;
+      }
     }
     .refillButton {
       margin: 1rem;
       height: 10%;
       width: 20%;
       align-self: center;
-      border: solid 2px black;
+      background-color: #fff;
+      box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #f4dc26,
+      0 0 0.8rem #f4dc26,
+      0 0 2.8rem #f4dc26,
+      inset 0 0 1.3rem #f4dc26;
+      border-radius: 1rem;
+      .wheelbarrowImg {
+        height: 75%;
+        padding: 0.5rem;
+      }
     }
   }
 }
