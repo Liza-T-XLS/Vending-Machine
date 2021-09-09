@@ -14,15 +14,42 @@ const VM = () => (
       <div className="left">
         <div className="sign">Vending-Machine</div>
         <div className="products">
-          <div className="product"><img className="productImg" src={soda} alt="soda" /></div>
-          <div className="product">Product 002</div>
-          <div className="product">Product 003</div>
-          <div className="product">Product 004</div>
-          <div className="product">Product 005</div>
-          <div className="product">Product 006</div>
-          <div className="product">Product 007</div>
-          <div className="product">Product 008</div>
-          <div className="product">Product 009</div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
+          <div className="product">
+            <img className="productImg" src={soda} alt="soda" />
+            <div className="productId">001</div>
+          </div>
         </div>
         <div className="pickupBox">Pick-up Box</div>
       </div>
