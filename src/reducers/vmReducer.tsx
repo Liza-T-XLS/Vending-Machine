@@ -1,15 +1,17 @@
 // == Imports
 
 import { AnyAction } from 'redux'
+import { TInventory } from '../typings';
+import inventory from '../data';
 
 // == Initial state
 
 interface vmState {
-  inventory: Array<{}>
+  inventory: TInventory
 }
 
 const initialState: vmState = {
-  inventory: [],
+  inventory: inventory,
 };
 
 // == Reducer

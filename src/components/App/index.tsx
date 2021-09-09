@@ -5,7 +5,7 @@ import React from 'react';
 import './app.scss';
 
 import Header from '../Header';
-import VM from '../VM';
+import VM from '../../containers/VM';
 import Footer from '../Footer';
 
 // == Component
