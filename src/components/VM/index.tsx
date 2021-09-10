@@ -9,6 +9,8 @@ import soda from '../../images/soda.svg';
 import creditCard from '../../images/creditCard.svg';
 import wheelbarrow from '../../images/wheelbarrow.svg';
 
+import Product from './Product';
+
 import { TInventory } from '../../typings';
 
 // == Component
@@ -24,10 +26,7 @@ const VM = ({ inventory }: Props) => (
         <div className="sign">Vending-Machine</div>
         <div className="products">
           {inventory.map((item) => (
-            <div className="product">
-              <img className="productImg" src={item.productImg} alt="product" />
-              <div className="productId">{item.id}</div>
-            </div>
+            <Product key={item.id} item={item} />
           ))}
         </div>
         <div className="pickupBox">Pick-up Box</div>
