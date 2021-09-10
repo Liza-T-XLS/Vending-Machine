@@ -79,6 +79,20 @@
       height: calc(20% - 4rem);
       border: solid 2px black;
       background: rgba(0, 0, 0, 0.185);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.lighted {
+        box-shadow: 0 0 .2rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #fff,
+        0 0 0.4rem #fff,
+        inset 0 0 4rem #fff;
+      }
+      .purchasedProduct {
+        height: 70%;
+        padding: 0.5rem;
+      }
     }
   }
   .right {

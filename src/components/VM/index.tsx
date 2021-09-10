@@ -10,6 +10,7 @@ import wheelbarrow from '../../images/wheelbarrow.svg';
 import Product from '../../containers/VM/Product';
 import Screen from '../../containers/VM/Screen';
 import CardReader from '../../containers/VM/CardReader';
+import PickupBox from '../../containers/VM/PickupBox';
 
 import { TInventory } from '../../typings';
 
@@ -29,7 +30,7 @@ const VM = ({ inventory }: Props) => (
             <Product key={item.id} {...item} />
           ))}
         </div>
-        <div className="pickupBox">Pick-up Box</div>
+        <PickupBox />
       </div>
       <div className="right">
         <Screen />
