@@ -32,13 +32,20 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         instructionsMsg: newMsg,
       };
     }
-    case PROCESS_ORDER:
+    case PROCESS_ORDER: {
+      const updatedInventory = [...state.inventory].map((item) =>
+      item.id === state.selectedProduct ? {
+        ...item,
+        quantity: item.quantity - 1,
+      } : item);
       return {
         ...state,
+        inventory: updatedInventory,
         instructionsMsg: 'Thank you for your purchase! Please retrieve your product in the pick-up box',
         pickupBoxProduct: state.selectedProduct,
         selectedProduct: {...initialState}.selectedProduct,
       };
+    }
     case EMPTY_PICKUP_BOX:
       return {
         ...state,
