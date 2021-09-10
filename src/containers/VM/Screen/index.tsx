@@ -2,19 +2,15 @@
 
 import { connect } from 'react-redux';
 import Screen from '../../../components/VM/Screen';
-import { TInventory } from '../../../typings';
+import { IVMState } from '../../../typings';
 import { Dispatch } from 'redux';
 
 import { setSelectedProduct } from '../../../actions/vm';
 
-interface RootState {
-  inventory: TInventory,
-  selectedProduct: number,
-}
-
-const mapStateToProps = (state: RootState) => ({
+const mapStateToProps = (state: IVMState) => ({
   inventory: state.inventory,
   selectedProduct: state.selectedProduct,
+  instructionsMsg: state.instructionsMsg,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

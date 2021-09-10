@@ -94,12 +94,19 @@
       background-color: #fff;
       animation: pulsate 0.11s ease-in-out infinite alternate;
       .instructions {
+        height: 2rem;
         padding: 1rem;
         margin: 0.65rem;
         border-top-left-radius: 0.4rem;
         border-top-right-radius: 0.4rem;
         background-color: black;
         color: #f4dc26;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .message {
+          display: block;
+        }
       }
       .pad {
         display: grid;

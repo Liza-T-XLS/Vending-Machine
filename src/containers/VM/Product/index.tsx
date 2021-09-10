@@ -2,14 +2,10 @@
 
 import { connect } from 'react-redux';
 import Product from '../../../components/VM/Product';
-import { TInventory, IProduct } from '../../../typings';
+import { IVMState, IProduct } from '../../../typings';
 import { Dispatch } from 'redux';
 
-interface RootState {
-  inventory: TInventory
-}
-
-const mapStateToProps = (state: RootState, ownProps: IProduct) => ({
+const mapStateToProps = (state: IVMState, ownProps: IProduct) => ({
   item: ownProps,
 });
 

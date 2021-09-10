@@ -9,11 +9,12 @@ import { TInventory } from '../../../typings';
 
 type Props = {
   inventory: TInventory,
-  setSelectedProduct: (productId: number) => void,
   selectedProduct: number,
+  setSelectedProduct: (productId: number) => void,
+  instructionsMsg: string,
 };
 
-const Screen = ({ inventory, selectedProduct, setSelectedProduct }: Props) => {
+const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMsg }: Props) => {
   // array created in order to automatically generate pad numbers in pad
   // (number of elements in array will equal number of pad numbers)
   const arr = [];
@@ -34,7 +35,7 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct }: Props) => {
   return (
   <div className="screen">
   <div className="instructions">
-    <p className="message">Please select your product</p>
+    <p className="message">{instructionsMsg}</p>
   </div>
   <div className="pad">
     {arr.map((arrElement) => {
