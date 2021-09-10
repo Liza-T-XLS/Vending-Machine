@@ -23,7 +23,7 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMs
     arr.push(quantity);
   }
 
-  const onSelectHandler = (event: MouseEvent<HTMLImageElement>): void => {
+  const onSelectHandler = (event: MouseEvent<HTMLDivElement>): void => {
     const target = event.target as HTMLDivElement;
     setSelectedProduct(parseInt(target.id));
   };
@@ -33,25 +33,26 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMs
   const selectedProductQtyMsg = selectedProductQty <= 1 ? `${selectedProductQty} unit left` : `${selectedProductQty} units left`;
 
   return (
-  <div className="screen">
-  <div className="instructions">
-    <p className="message">{instructionsMsg}</p>
-  </div>
-  <div className="pad">
-    {arr.map((arrElement) => {
-      const padNumberClassName = classNames('padNumber', {selected: arrElement === selectedProduct});
-      return (
-      <div key={arrElement} id={arrElement.toString()} className={padNumberClassName} onClick={onSelectHandler}>{`00${arrElement}`}</div>
-    )})}
-  </div>
-  {selectedProduct > 0 && (
-    <div className="selectedProduct">
-      <img className="selectedProductImg" src={selectedProductImg} alt="selected product" />
-      <p className="unitLeft">{selectedProductQtyMsg}</p>
+    <div className="screen">
+      <div className="instructions">
+        <p className="message">{instructionsMsg}</p>
+      </div>
+      <div className="pad">
+        {arr.map((arrElement) => {
+          const padNumberClassName = classNames('padNumber', {selected: arrElement === selectedProduct});
+          return (
+          <div key={arrElement} id={arrElement.toString()} className={padNumberClassName} onClick={onSelectHandler}>{`00${arrElement}`}</div>
+        )})}
+      </div>
+      {selectedProduct > 0 && (
+        <div className="selectedProduct">
+          <img className="selectedProductImg" src={selectedProductImg} alt="selected product" />
+          <p className="unitLeft">{selectedProductQtyMsg}</p>
+        </div>
+      )}
     </div>
-  )}
-</div>
-)};
+  );
+};
 
 // == Export
 

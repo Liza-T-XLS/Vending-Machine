@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 
 import './vm.scss';
 
-import creditCard from '../../images/creditCard.svg';
 import wheelbarrow from '../../images/wheelbarrow.svg';
 
 import Product from '../../containers/VM/Product';
 import Screen from '../../containers/VM/Screen';
+import CardReader from '../../containers/VM/CardReader';
 
 import { TInventory } from '../../typings';
 
@@ -33,9 +33,7 @@ const VM = ({ inventory }: Props) => (
       </div>
       <div className="right">
         <Screen />
-        <div className="cardReader">
-          <img className="creditCardImg" src={creditCard} alt="creditCard" />
-        </div>
+        <CardReader />
         <div className="refillButton">
           <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow" />
         </div>

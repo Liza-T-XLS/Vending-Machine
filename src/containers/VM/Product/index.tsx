@@ -1,9 +1,11 @@
 // == Imports
 
 import { connect } from 'react-redux';
-import Product from '../../../components/VM/Product';
-import { IVMState, IProduct } from '../../../typings';
 import { Dispatch } from 'redux';
+
+import { IVMState, IProduct } from '../../../typings';
+
+import Product from '../../../components/VM/Product';
 
 const mapStateToProps = (state: IVMState, ownProps: IProduct) => ({
   item: ownProps,

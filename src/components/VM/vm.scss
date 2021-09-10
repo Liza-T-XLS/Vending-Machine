@@ -171,6 +171,14 @@
         height: 75%;
         padding: 0.5rem;
       }
+      &:hover, &:active {
+        box-shadow: 0 0 .2rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #00ba7c,
+        0 0 0.4rem #00ba7c,
+        0 0 0.4rem #00ba7c,
+        inset 0 0 1.3rem #00ba7c;
+      }
     }
     .refillButton {
       margin: 1rem;
