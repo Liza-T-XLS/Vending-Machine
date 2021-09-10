@@ -10,7 +10,6 @@ interface RootState {
 }
 
 const mapStateToProps = (state: RootState, ownProps: IProduct) => ({
-  inventory: state.inventory,
   item: ownProps,
 });
 
