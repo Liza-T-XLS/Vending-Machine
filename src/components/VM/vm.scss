@@ -193,6 +193,16 @@
         0 0 0.4rem #00ba7c,
         inset 0 0 1.3rem #00ba7c;
       }
+      &.unavailable{
+        &:hover, &:active {
+          box-shadow: 0 0 .2rem #fff,
+          0 0 .1rem #fff,
+          0 0 1rem #e92929,
+          0 0 0.4rem #e92929,
+          0 0 0.4rem  #e92929,
+          inset 0 0 1.3rem #e92929;
+        }
+      }
     }
     .refillButton {
       margin: 1rem;

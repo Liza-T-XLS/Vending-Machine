@@ -12,6 +12,7 @@ import { processOrder } from '../../../actions/vm';
 const mapStateToProps = (state: IVMState) => ({
   inventory: state.inventory,
   selectedProduct: state.selectedProduct,
+  pickupBoxProduct: state.pickupBoxProduct,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
