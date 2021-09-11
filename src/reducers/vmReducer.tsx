@@ -4,7 +4,7 @@ import { AnyAction } from 'redux'
 import { IVMState } from '../typings';
 import inventory from '../data';
 
-import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX } from '../actions/vm';
+import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE } from '../actions/vm';
 
 // == Initial state
 
@@ -51,6 +51,11 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         ...state,
         pickupBoxProduct: {...initialState}.selectedProduct,
         instructionsMsg: {...initialState}.instructionsMsg,
+      };
+    case REFILL_MACHINE:
+      return {
+        ...state,
+        ...initialState,
       };
     default: return state;
   }

@@ -5,12 +5,11 @@ import PropTypes from 'prop-types';
 
 import './vm.scss';
 
-import wheelbarrow from '../../images/wheelbarrow.svg';
-
 import Product from '../../containers/VM/Product';
 import Screen from '../../containers/VM/Screen';
 import CardReader from '../../containers/VM/CardReader';
 import PickupBox from '../../containers/VM/PickupBox';
+import RefillButton from '../../containers/VM/RefillButton';
 
 import { TInventory } from '../../typings';
 
@@ -35,9 +34,7 @@ const VM = ({ inventory }: Props) => (
       <div className="right">
         <Screen />
         <CardReader />
-        <div className="refillButton">
-          <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow" />
-        </div>
+        <RefillButton />
       </div>
     </div>
   </main>
