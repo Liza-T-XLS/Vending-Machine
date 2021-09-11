@@ -11,6 +11,7 @@ const mapStateToProps = (state: IVMState) => ({
   inventory: state.inventory,
   selectedProduct: state.selectedProduct,
   instructionsMsg: state.instructionsMsg,
+  pickupBoxProduct: state.pickupBoxProduct,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

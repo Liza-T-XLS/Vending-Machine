@@ -167,6 +167,82 @@
           margin-bottom: 0.1rem;
         }
       }
+      .ad {
+        height: calc(100% - (0.65rem * 6) - 2rem);
+        margin: 0.65rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+          "adLimited adLimited adReward"
+          "adLimited adLimited adReward"
+          "adOnigiri adOnigiri adReward";
+        .adLimited {
+          grid-area: adLimited;
+          font-family: cursive;
+          font-size: 2rem;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          background-image: linear-gradient(90deg, #090979 0%, #094c79 35%, #00d4ff 100%);
+          position: relative;
+          overflow: hidden;
+          .limitedBanner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-45deg) translateY(-0.1rem) translateX(-3rem);
+            font-size: 1rem;
+            font-family: $secondaryFontFamily;
+            color: black;
+            background-color: #c4a037;
+            padding: 0.25rem 1.5rem 0.25rem 1.5rem;   
+          }
+          .tortilla {
+            height: 5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+          }
+        }
+        .adReward {
+          grid-area: adReward;
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 0.5rem;
+          border: 3px solid;
+          border-image: linear-gradient(to right, red, orange, yellow, green, blue, violet, transparent) 30;
+          border-radius: 1rem;
+          .prize {
+            height: 2rem;
+          }
+        }
+        .adOnigiri {
+          grid-area: adOnigiri;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #e94f4f;
+          color: white;
+          padding: 0.5rem;
+          .onigiriCharacter {
+            margin-left: 0.25rem;
+            height: 3rem;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            transform-origin: bottom;
+            animation-name: bounce;
+            animation-timing-function: linear;
+          }
+          @keyframes bounce {
+            0%   { transform: translateY(0); }
+            50%  { transform: translateY(-0.5rem); }
+            100% { transform: translateY(0); }
+          }
+        }
+      }
     }
     .cardReader {
       margin: 1rem;
