@@ -1,22 +1,23 @@
 // == Imports
 
 import { connect } from 'react-redux';
-import VM from '../../components/VM';
-import { IVMState } from '../../typings';
 import { Dispatch } from 'redux';
 
-import { activateRewardsProgram } from '../../actions/vm';
+import { IVMState } from '../../../../typings';
+
+import Pad from '../../../../components/VM/Screen/Pad';
+
+import { setSelectedProduct } from '../../../../actions/vm';
 
 const mapStateToProps = (state: IVMState) => ({
-  inventory: state.inventory,
-  purchaseCounter: state.purchaseCounter,
+  selectedProduct: state.selectedProduct,
   rewardsProgramStatus: state.rewardsProgramStatus,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  activateRewardsProgram: () => {
-    dispatch(activateRewardsProgram());
-  }
+  setSelectedProduct: (productId: number) => {
+    dispatch(setSelectedProduct(productId));
+  },
 });
 
 // == Export
@@ -24,4 +25,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(VM);
+)(Pad);

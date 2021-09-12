@@ -5,8 +5,6 @@ import Screen from '../../../components/VM/Screen';
 import { IVMState } from '../../../typings';
 import { Dispatch } from 'redux';
 
-import { setSelectedProduct } from '../../../actions/vm';
-
 const mapStateToProps = (state: IVMState) => ({
   inventory: state.inventory,
   selectedProduct: state.selectedProduct,
@@ -16,9 +14,7 @@ const mapStateToProps = (state: IVMState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setSelectedProduct: (productId: number) => {
-    dispatch(setSelectedProduct(productId));
-  }
+
 });
 
 // == Export

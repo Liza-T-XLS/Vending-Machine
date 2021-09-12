@@ -5,7 +5,6 @@ import { IVMState } from '../typings';
 import inventory from '../data';
 
 import vendingMachine from '../images/vending-machine.svg';
-import snackBar from '../images/snackBar.svg';
 
 import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE, ACTIVATE_REWARDS_PROGRAM, SET_REFILL_STATUS } from '../actions/vm';
 
@@ -19,7 +18,6 @@ const initialState: IVMState = {
   refillStatus: false,
   purchaseCounter: 0,
   rewardsProgramStatus: false,
-  product005Quantity: 0,
 };
 
 // == Reducer
@@ -28,9 +26,10 @@ const vmReducer = (state = initialState, action: AnyAction) => {
   switch(action.type) {
     case SET_SELECTED_PRODUCT: {
       let newMsg: string = '';
-      if(action.productId > 0 && state.inventory[action.productId - 1].quantity > 0) {
+      const selectedProduct = state.inventory.find(item => item.id === action.productId);
+      if(action.productId > 0 && selectedProduct !== undefined && selectedProduct.quantity > 0) {
         newMsg = 'Please proceed to payment using the card reader (or choose another product)';
-      } else if (action.productId > 0 && state.inventory[action.productId - 1].quantity === 0) {
+      } else if (action.productId > 0 && selectedProduct !== undefined && selectedProduct.quantity === 0) {
         newMsg = 'Sorry, the product you have selected is currently not available, please choose another product';
       };
       return {
@@ -58,13 +57,8 @@ const vmReducer = (state = initialState, action: AnyAction) => {
       let updatedInventory = [...state.inventory];
       let updatedRewardsProgramStatus = state.rewardsProgramStatus;
       let updatedPurchaseCounter = state.purchaseCounter;
-      if (state.rewardsProgramStatus === true && state.pickupBoxProduct === 5) {
-        updatedInventory = [...state.inventory].map((item) =>
-        item.id === state.pickupBoxProduct ? {
-          ...item,
-          productImg: snackBar,
-          quantity: state.product005Quantity,
-        } : item);
+      if (state.rewardsProgramStatus === true && state.pickupBoxProduct === 888) {
+        updatedInventory = [...state.inventory].filter(item => item.id !== 888);
         updatedRewardsProgramStatus = false;
         updatedPurchaseCounter = {...initialState}.purchaseCounter;
       };
@@ -94,18 +88,16 @@ const vmReducer = (state = initialState, action: AnyAction) => {
       ...initialState,
     };
     case ACTIVATE_REWARDS_PROGRAM: {
-      const updatedInventory = [...state.inventory].map((item) =>
-      item.id === 5 ? {
-        ...item,
+      const updatedInventory = [...state.inventory];
+      updatedInventory.push({
+        id: 888,
         productImg: vendingMachine,
         quantity: 1,
-      } : item);
-      const updatedProduct005Quantity = state.inventory[5 - 1].quantity;
+      });
       return {
         ...state,
         inventory: updatedInventory,
         rewardsProgramStatus: true,
-        product005Quantity: updatedProduct005Quantity,
       };
     };
     default: return state;

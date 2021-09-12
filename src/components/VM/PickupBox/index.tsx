@@ -17,7 +17,7 @@ const PickupBox = ({ inventory, pickupBoxProduct, emptyPickupBox }: Props) => {
   const onPickupHandler = (event: MouseEvent<HTMLDivElement>): void => {
     emptyPickupBox();
   };
-  const purchasedProductImg = inventory[pickupBoxProduct - 1]?.productImg;
+  const purchasedProductImg = inventory.find(item => item.id === pickupBoxProduct)?.productImg;
   const pickupBoxClassName = classNames('pickupBox', {lighted: pickupBoxProduct > 0});
 
   return (

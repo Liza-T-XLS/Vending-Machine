@@ -1,11 +1,11 @@
 // == Imports
 
-import React, { MouseEvent } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 
 import { TInventory } from '../../../typings';
 
 import Ad from '../../../containers/VM/Screen/Ad';
+import Pad from '../../../containers/VM/Screen/Pad';
 
 import deliveryTruck from '../../../images/deliveryTruck.svg';
 
@@ -14,29 +14,15 @@ import deliveryTruck from '../../../images/deliveryTruck.svg';
 type Props = {
   inventory: TInventory,
   selectedProduct: number,
-  setSelectedProduct: (productId: number) => void,
   instructionsMsg: string,
   pickupBoxProduct: number,
   refillStatus: boolean,
 };
 
-const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMsg, pickupBoxProduct, refillStatus }: Props) => {
-  // array created in order to automatically generate pad numbers in pad
-  // (number of elements in array will equal number of pad numbers)
-  const arr = [];
-  const maxQuantity = 9;
-  for (let quantity = 1; quantity <= maxQuantity; quantity++) {
-    arr.push(quantity);
-  }
-
-  const onSelectHandler = (event: MouseEvent<HTMLDivElement>): void => {
-    const target = event.target as HTMLDivElement;
-    setSelectedProduct(parseInt(target.id));
-  };
-
-  const selectedProductImg = inventory[selectedProduct - 1]?.productImg;
-  const selectedProductQty = inventory[selectedProduct - 1]?.quantity;
-  const selectedProductQtyMsg = selectedProductQty <= 1 ? `${selectedProductQty} unit left` : `${selectedProductQty} units left`;
+const Screen = ({ inventory, selectedProduct, instructionsMsg, pickupBoxProduct, refillStatus }: Props) => {
+  const selectedProductImg = inventory.find(item => item.id === selectedProduct)?.productImg;
+  const selectedProductQty = inventory.find(item => item.id === selectedProduct)?.quantity;
+  const selectedProductQtyMsg = selectedProductQty !== undefined && selectedProductQty <= 1 ? `${selectedProductQty} unit left` : `${selectedProductQty} units left`;
 
   return (
     <div className="screen">
@@ -44,13 +30,7 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMs
         <p className="message">{instructionsMsg}</p>
       </div>
       {pickupBoxProduct === 0 && refillStatus === false && (
-      <div className="pad">
-        {arr.map((arrElement) => {
-          const padNumberClassName = classNames('padNumber', {selected: arrElement === selectedProduct});
-          return (
-          <div key={arrElement} id={arrElement.toString()} className={padNumberClassName} onClick={onSelectHandler}>{`00${arrElement}`}</div>
-        )})}
-      </div>
+        <Pad />
       )}
       {pickupBoxProduct > 0 && refillStatus === false && (
         <Ad />

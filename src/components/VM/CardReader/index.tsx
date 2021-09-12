@@ -18,7 +18,8 @@ type Props = {
 
 const CardReader = ({ inventory, selectedProduct, processOrder, pickupBoxProduct }: Props) => {
   const onPayHandler = (event: MouseEvent<HTMLDivElement>): void => {
-    if (selectedProduct > 0 && inventory[selectedProduct - 1].quantity > 0) {
+    const selectedItem = inventory.find(item => item.id === selectedProduct);
+    if (selectedProduct > 0 && selectedItem !== undefined && selectedItem.quantity > 0) {
       processOrder();
     }
   };

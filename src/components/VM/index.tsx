@@ -19,9 +19,10 @@ type Props = {
   inventory: TInventory,
   purchaseCounter: number,
   activateRewardsProgram: () => void,
+  rewardsProgramStatus: boolean,
 }
 
-const VM = ({ inventory, purchaseCounter, activateRewardsProgram }: Props) => {
+const VM = ({ inventory, purchaseCounter, activateRewardsProgram, rewardsProgramStatus }: Props) => {
   useEffect(() => {
     if (purchaseCounter === 3) {
       activateRewardsProgram();
@@ -32,11 +33,21 @@ const VM = ({ inventory, purchaseCounter, activateRewardsProgram }: Props) => {
       <div className="vm">
         <div className="left">
           <div className="sign">Vending-Machine</div>
-          <div className="products">
-            {inventory.map((item) => (
-              <Product key={item.id} {...item} />
-            ))}
-          </div>
+          {!rewardsProgramStatus && (
+            <div className="products">
+              {inventory.map((item) => (
+                <Product key={item.id} {...item} />
+              ))}
+            </div>
+          )}
+          {rewardsProgramStatus && (
+            <div className="products">
+              {inventory.filter((item) => item.id !== 9)
+              .map((item) => (
+                <Product key={item.id} {...item} />
+              ))}
+            </div>
+          )}
           <PickupBox />
         </div>
         <div className="right">

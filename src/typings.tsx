@@ -6,7 +6,6 @@ export interface IVMState {
   refillStatus: boolean,
   purchaseCounter: number,
   rewardsProgramStatus: boolean,
-  product005Quantity: number,
 };
 
 export type TInventory = Array<IProduct>;
