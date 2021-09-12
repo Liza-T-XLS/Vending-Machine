@@ -3,6 +3,7 @@ export interface IVMState {
   selectedProduct: number,
   instructionsMsg: string,
   pickupBoxProduct: number,
+  refillStatus: boolean,
   purchaseCounter: number,
   rewardsProgramStatus: boolean,
   product005Quantity: number,

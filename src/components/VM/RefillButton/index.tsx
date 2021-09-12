@@ -8,12 +8,16 @@ import wheelbarrow from '../../../images/wheelbarrow.svg';
 // == Component
 
 type Props = {
+  setRefillStatus: (boolean: boolean) => void,
   refillMachine: () => void,
 };
 
-const RefillButton = ({ refillMachine }: Props) => {
+const RefillButton = ({ setRefillStatus, refillMachine }: Props) => {
   const onRefillHandler = (event: MouseEvent<HTMLDivElement>): void => {
-    refillMachine();
+    setRefillStatus(true);
+    setTimeout(() => {
+      refillMachine();
+     }, 3000);
   };
 
   const refillButtonClassName = classNames('refillButton');

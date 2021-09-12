@@ -110,7 +110,7 @@
       .instructions {
         height: 2rem;
         padding: 1rem;
-        margin: 0.65rem;
+        margin: 0.65rem 0.65rem 0rem 0.65rem;
         border-top-left-radius: 0.4rem;
         border-top-right-radius: 0.4rem;
         background-color: black;
@@ -168,8 +168,8 @@
         }
       }
       .ad {
-        height: calc(100% - (0.65rem * 6) - 2rem);
-        margin: 0.65rem;
+        height: calc(100% - (0.65rem * 5) - 2rem);
+        margin: 0rem 0.65rem 0.65rem 0.65rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -214,13 +214,13 @@
           padding: 0.5rem;
           border: 3px solid;
           border-image: linear-gradient(to right, red, orange, yellow, green, blue, violet, transparent) 30;
-          border-radius: 1rem;
           .prize {
             height: 2rem;
           }
         }
         .adOnigiri {
           grid-area: adOnigiri;
+          border-bottom-left-radius: 0.4rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -241,6 +241,19 @@
             50%  { transform: translateY(-0.5rem); }
             100% { transform: translateY(0); }
           }
+        }
+      }
+      .deliveryScreen {
+        height: calc(100% - (0.65rem * 5) - 2rem);
+        margin: 0rem 0.65rem 0.65rem 0.65rem;
+        border-bottom-left-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(90deg, #5dbf1d 0%, #6cdc2d 35%, #90dc2d 100%);
+        .deliveryTruck {
+          height: 5rem;
         }
       }
     }

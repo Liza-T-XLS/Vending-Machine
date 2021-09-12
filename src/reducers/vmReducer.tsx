@@ -7,7 +7,7 @@ import inventory from '../data';
 import vendingMachine from '../images/vending-machine.svg';
 import snackBar from '../images/snackBar.svg';
 
-import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE, ACTIVATE_REWARDS_PROGRAM } from '../actions/vm';
+import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE, ACTIVATE_REWARDS_PROGRAM, SET_REFILL_STATUS } from '../actions/vm';
 
 // == Initial state
 
@@ -16,6 +16,7 @@ const initialState: IVMState = {
   selectedProduct: 0,
   instructionsMsg: 'Please select a product',
   pickupBoxProduct: 0,
+  refillStatus: false,
   purchaseCounter: 0,
   rewardsProgramStatus: false,
   product005Quantity: 0,
@@ -73,11 +74,22 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         rewardsProgramStatus: updatedRewardsProgramStatus,
       };
     }
-    case REFILL_MACHINE:
+    case SET_REFILL_STATUS: {
+      let newMsg: string = state.instructionsMsg;
+      if (action.boolean === true) {
+        newMsg = 'Refilling...';
+      }
       return {
         ...state,
-        ...initialState,
+        instructionsMsg: newMsg,
+        refillStatus: action.boolean,
       };
+    };
+    case REFILL_MACHINE:
+    return {
+      ...state,
+      ...initialState,
+    };
     case ACTIVATE_REWARDS_PROGRAM: {
       const updatedInventory = [...state.inventory].map((item) =>
       item.id === 5 ? {

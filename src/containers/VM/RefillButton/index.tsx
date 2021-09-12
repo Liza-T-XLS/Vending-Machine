@@ -7,7 +7,7 @@ import { IVMState } from '../../../typings';
 
 import RefillButton from '../../../components/VM/RefillButton';
 
-import { refillMachine } from '../../../actions/vm';
+import { setRefillStatus, refillMachine } from '../../../actions/vm';
 
 const mapStateToProps = (state: IVMState) => ({
   inventory: state.inventory,
@@ -16,6 +16,9 @@ const mapStateToProps = (state: IVMState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setRefillStatus: (boolean: boolean) => {
+    dispatch(setRefillStatus(boolean));
+  },
   refillMachine: () => {
     dispatch(refillMachine());
   }

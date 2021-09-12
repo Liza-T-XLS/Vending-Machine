@@ -7,6 +7,8 @@ import { TInventory } from '../../../typings';
 
 import Ad from './Ad';
 
+import deliveryTruck from '../../../images/deliveryTruck.svg';
+
 // == Component
 
 type Props = {
@@ -15,9 +17,10 @@ type Props = {
   setSelectedProduct: (productId: number) => void,
   instructionsMsg: string,
   pickupBoxProduct: number,
+  refillStatus: boolean,
 };
 
-const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMsg, pickupBoxProduct }: Props) => {
+const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMsg, pickupBoxProduct, refillStatus }: Props) => {
   // array created in order to automatically generate pad numbers in pad
   // (number of elements in array will equal number of pad numbers)
   const arr = [];
@@ -40,7 +43,7 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMs
       <div className="instructions">
         <p className="message">{instructionsMsg}</p>
       </div>
-      {pickupBoxProduct === 0 && (
+      {pickupBoxProduct === 0 && refillStatus === false && (
       <div className="pad">
         {arr.map((arrElement) => {
           const padNumberClassName = classNames('padNumber', {selected: arrElement === selectedProduct});
@@ -49,13 +52,18 @@ const Screen = ({ inventory, selectedProduct, setSelectedProduct, instructionsMs
         )})}
       </div>
       )}
-      {pickupBoxProduct > 0 && (
+      {pickupBoxProduct > 0 && refillStatus === false && (
         <Ad />
       )}
-      {selectedProduct > 0 && (
+      {selectedProduct > 0 && refillStatus === false && (
         <div className="selectedProduct">
           <img className="selectedProductImg" src={selectedProductImg} alt="selected product" />
           <p className="unitLeft">{selectedProductQtyMsg}</p>
+        </div>
+      )}
+      {refillStatus === true && (
+        <div className="deliveryScreen">
+          <img className="deliveryTruck" src={deliveryTruck} alt="delivery truck" />
         </div>
       )}
     </div>
