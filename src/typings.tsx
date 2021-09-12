@@ -4,6 +4,8 @@ export interface IVMState {
   instructionsMsg: string,
   pickupBoxProduct: number,
   purchaseCounter: number,
+  rewardsProgramStatus: boolean,
+  product005Quantity: number,
 };
 
 export type TInventory = Array<IProduct>;

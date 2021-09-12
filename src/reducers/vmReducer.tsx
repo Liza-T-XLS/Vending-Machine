@@ -5,6 +5,7 @@ import { IVMState } from '../typings';
 import inventory from '../data';
 
 import vendingMachine from '../images/vending-machine.svg';
+import snackBar from '../images/snackBar.svg';
 
 import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE, ACTIVATE_REWARDS_PROGRAM } from '../actions/vm';
 
@@ -16,6 +17,8 @@ const initialState: IVMState = {
   instructionsMsg: 'Please select a product',
   pickupBoxProduct: 0,
   purchaseCounter: 0,
+  rewardsProgramStatus: false,
+  product005Quantity: 0,
 };
 
 // == Reducer
@@ -50,12 +53,26 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         selectedProduct: {...initialState}.selectedProduct,
       };
     }
-    case EMPTY_PICKUP_BOX:
+    case EMPTY_PICKUP_BOX: {
+      let updatedInventory = [...state.inventory];
+      let updatedRewardsProgramStatus = state.rewardsProgramStatus;
+      if (state.rewardsProgramStatus === true && state.pickupBoxProduct === 5) {
+        updatedInventory = [...state.inventory].map((item) =>
+        item.id === state.pickupBoxProduct ? {
+          ...item,
+          productImg: snackBar,
+          quantity: state.product005Quantity,
+        } : item);
+        updatedRewardsProgramStatus = false;
+      };
       return {
         ...state,
+        inventory: updatedInventory,
         pickupBoxProduct: {...initialState}.selectedProduct,
         instructionsMsg: {...initialState}.instructionsMsg,
+        rewardsProgramStatus: updatedRewardsProgramStatus,
       };
+    }
     case REFILL_MACHINE:
       return {
         ...state,
@@ -68,9 +85,12 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         productImg: vendingMachine,
         quantity: 1,
       } : item);
+      const updatedProduct005Quantity = state.inventory[5 - 1].quantity;
       return {
         ...state,
         inventory: updatedInventory,
+        rewardsProgramStatus: true,
+        product005Quantity: updatedProduct005Quantity,
       };
     };
     default: return state;
