@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { TInventory } from '../../../typings';
 
-import Ad from './Ad';
+import Ad from '../../../containers/VM/Screen/Ad';
 
 import deliveryTruck from '../../../images/deliveryTruck.svg';
 

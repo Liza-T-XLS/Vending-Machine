@@ -242,6 +242,12 @@
             100% { transform: translateY(0); }
           }
         }
+        &.rewardInfo {
+          grid-template-areas:
+          "adReward adReward adReward"
+          "adReward adReward adReward"
+          "adReward adReward adReward";
+        }
       }
       .deliveryScreen {
         height: calc(100% - (0.65rem * 5) - 2rem);

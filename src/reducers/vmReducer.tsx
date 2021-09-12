@@ -57,6 +57,7 @@ const vmReducer = (state = initialState, action: AnyAction) => {
     case EMPTY_PICKUP_BOX: {
       let updatedInventory = [...state.inventory];
       let updatedRewardsProgramStatus = state.rewardsProgramStatus;
+      let updatedPurchaseCounter = state.purchaseCounter;
       if (state.rewardsProgramStatus === true && state.pickupBoxProduct === 5) {
         updatedInventory = [...state.inventory].map((item) =>
         item.id === state.pickupBoxProduct ? {
@@ -65,6 +66,7 @@ const vmReducer = (state = initialState, action: AnyAction) => {
           quantity: state.product005Quantity,
         } : item);
         updatedRewardsProgramStatus = false;
+        updatedPurchaseCounter = {...initialState}.purchaseCounter;
       };
       return {
         ...state,
@@ -72,6 +74,7 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         pickupBoxProduct: {...initialState}.selectedProduct,
         instructionsMsg: {...initialState}.instructionsMsg,
         rewardsProgramStatus: updatedRewardsProgramStatus,
+        purchaseCounter: updatedPurchaseCounter,
       };
     }
     case SET_REFILL_STATUS: {
