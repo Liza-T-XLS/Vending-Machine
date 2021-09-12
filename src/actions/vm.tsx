@@ -4,6 +4,7 @@ export const SET_SELECTED_PRODUCT = 'SET_SELECTED_PRODUCT';
 export const PROCESS_ORDER = 'PROCESS_ORDER';
 export const EMPTY_PICKUP_BOX = 'EMPTY_PICKUP_BOX';
 export const REFILL_MACHINE = 'REFILL_MACHINE';
+export const ACTIVATE_REWARDS_PROGRAM = 'ACTIVATE_REWARDS_PROGRAM';
 
 // == Action creators
 
@@ -22,4 +23,8 @@ export const emptyPickupBox = () => ({
 
 export const refillMachine = () => ({
   type: REFILL_MACHINE,
+});
+
+export const activateRewardsProgram = () => ({
+  type: ACTIVATE_REWARDS_PROGRAM,
 });

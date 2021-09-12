@@ -4,7 +4,9 @@ import { AnyAction } from 'redux'
 import { IVMState } from '../typings';
 import inventory from '../data';
 
-import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE } from '../actions/vm';
+import vendingMachine from '../images/vending-machine.svg';
+
+import { SET_SELECTED_PRODUCT, PROCESS_ORDER, EMPTY_PICKUP_BOX, REFILL_MACHINE, ACTIVATE_REWARDS_PROGRAM } from '../actions/vm';
 
 // == Initial state
 
@@ -13,6 +15,7 @@ const initialState: IVMState = {
   selectedProduct: 0,
   instructionsMsg: 'Please select a product',
   pickupBoxProduct: 0,
+  purchaseCounter: 0,
 };
 
 // == Reducer
@@ -43,6 +46,7 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         inventory: updatedInventory,
         instructionsMsg: 'Thank you for your purchase! Please retrieve your product in the pick-up box',
         pickupBoxProduct: state.selectedProduct,
+        purchaseCounter: state.purchaseCounter + 1,
         selectedProduct: {...initialState}.selectedProduct,
       };
     }
@@ -57,6 +61,18 @@ const vmReducer = (state = initialState, action: AnyAction) => {
         ...state,
         ...initialState,
       };
+    case ACTIVATE_REWARDS_PROGRAM: {
+      const updatedInventory = [...state.inventory].map((item) =>
+      item.id === 5 ? {
+        ...item,
+        productImg: vendingMachine,
+        quantity: 1,
+      } : item);
+      return {
+        ...state,
+        inventory: updatedInventory,
+      };
+    };
     default: return state;
   }
 };

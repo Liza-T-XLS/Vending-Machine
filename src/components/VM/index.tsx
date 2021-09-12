@@ -1,6 +1,6 @@
 // == Imports
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './vm.scss';
@@ -17,33 +17,43 @@ import { TInventory } from '../../typings';
 
 type Props = {
   inventory: TInventory,
+  purchaseCounter: number,
+  activateRewardsProgram: () => void,
 }
 
-const VM = ({ inventory }: Props) => (
-  <main>
-    <div className="vm">
-      <div className="left">
-        <div className="sign">Vending-Machine</div>
-        <div className="products">
-          {inventory.map((item) => (
-            <Product key={item.id} {...item} />
-          ))}
+const VM = ({ inventory, purchaseCounter, activateRewardsProgram }: Props) => {
+  useEffect(() => {
+    if (purchaseCounter === 3) {
+      activateRewardsProgram();
+    };
+  }, [activateRewardsProgram, purchaseCounter]);
+  return (
+    <main>
+      <div className="vm">
+        <div className="left">
+          <div className="sign">Vending-Machine</div>
+          <div className="products">
+            {inventory.map((item) => (
+              <Product key={item.id} {...item} />
+            ))}
+          </div>
+          <PickupBox />
         </div>
-        <PickupBox />
+        <div className="right">
+          <Screen />
+          <CardReader />
+          <RefillButton />
+        </div>
       </div>
-      <div className="right">
-        <Screen />
-        <CardReader />
-        <RefillButton />
-      </div>
-    </div>
-  </main>
-);
+    </main>
+  );
+};
 
 // == PropTypes
 
 VM.propTypes = {
   inventory: PropTypes.array.isRequired,
+  purchaseCounter: PropTypes.number.isRequired,
 };
 
 // == Export
