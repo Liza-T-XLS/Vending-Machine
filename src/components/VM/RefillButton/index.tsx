@@ -3,6 +3,8 @@
 import React, { MouseEvent } from 'react';
 import classNames from 'classnames';
 
+import './refillButton.scss';
+
 import wheelbarrow from '../../../images/wheelbarrow.svg';
 
 // == Component

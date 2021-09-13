@@ -3,6 +3,8 @@
 import React, { MouseEvent } from 'react';
 import classNames from 'classnames';
 
+import './cardReader.scss';
+
 import creditCard from '../../../images/creditCard.svg';
 
 import { TInventory } from '../../../typings';
