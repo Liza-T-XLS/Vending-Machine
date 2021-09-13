@@ -27,7 +27,7 @@ const CardReader = ({ inventory, selectedProduct, processOrder, pickupBoxProduct
   const cardReaderClassName = classNames('cardReader', {unavailable: selectedProduct === 0 || inventory[selectedProduct - 1]?.quantity === 0 || pickupBoxProduct > 0 });
 
   return (
-    <div className={cardReaderClassName} onClick={onPayHandler}>
+    <div className={cardReaderClassName} onClick={onPayHandler} title="pay">
       <img className="creditCardImg" src={creditCard} alt="creditCard" />
     </div>
   );

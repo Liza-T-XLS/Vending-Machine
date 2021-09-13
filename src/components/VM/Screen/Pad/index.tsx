@@ -31,7 +31,6 @@ const Pad = ({ selectedProduct, setSelectedProduct, rewardsProgramStatus }: Prop
         const padNumberClassName = classNames('padNumber', {selected: arrElement === selectedProduct});
         const padNumberId = arrElement === 9 && rewardsProgramStatus ? 888 : arrElement;
         const padNumberDisplay = arrElement === 9 && rewardsProgramStatus ? '888' : `00${arrElement}`;
-        console.log(arrElement === 9 && rewardsProgramStatus);
         return (
         <div key={arrElement} id={padNumberId.toString()} className={padNumberClassName} onClick={onSelectHandler}>{padNumberDisplay}</div>
       )})}

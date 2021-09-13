@@ -22,6 +22,7 @@ const PickupBox = ({ inventory, pickupBoxProduct, emptyPickupBox }: Props) => {
 
   return (
     <div className={pickupBoxClassName}>
+      <div className="trapezoid"></div>
       {pickupBoxProduct > 0 && (
         <img className="purchasedProduct" src={purchasedProductImg} alt="purchased product" onClick={onPickupHandler} />
       )}

@@ -32,7 +32,7 @@ const VM = ({ inventory, purchaseCounter, activateRewardsProgram, rewardsProgram
     <main>
       <div className="vm">
         <div className="left">
-          <div className="sign">Vending-Machine</div>
+          <div className="sign">Lifesaver</div>
           {!rewardsProgramStatus && (
             <div className="products">
               {inventory.map((item) => (

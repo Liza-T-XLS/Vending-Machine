@@ -23,8 +23,8 @@ const RefillButton = ({ setRefillStatus, refillMachine }: Props) => {
   const refillButtonClassName = classNames('refillButton');
 
   return (
-    <div className={refillButtonClassName} onClick={onRefillHandler}>
-      <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow" />
+    <div className={refillButtonClassName} onClick={onRefillHandler} title="refill">
+      <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow"/>
     </div>
   );
 };
