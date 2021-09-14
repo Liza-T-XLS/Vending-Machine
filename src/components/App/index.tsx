@@ -11,11 +11,16 @@ import Footer from '../Footer';
 // == Component
 
 const App = () => (
+  <>
   <div className="app">
     <Header />
     <VM />
     <Footer />
   </div>
+  <div className="noScreenRotation">
+    <p>Oops! Sorry, screen rotation does not work with our vending machine...</p>
+  </div>
+  </>
 );
 
 // == Export

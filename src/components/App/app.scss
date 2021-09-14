@@ -1,3 +1,28 @@
+@import '../../styles/vars';
+
 .app {
   text-align: center;
+}
+.noScreenRotation {
+  display: none;
+}
+
+@media screen and (max-height: $mobileBreakPoint) and (orientation: landscape) {
+  .app {
+    display: none;
+  }
+  .noScreenRotation {
+    padding: 2rem;
+    font-family: $thirdFontFamily;
+    font-size: 3rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+    p {
+      text-align: center;
+      align-self: center;
+    }
+  }
 }
