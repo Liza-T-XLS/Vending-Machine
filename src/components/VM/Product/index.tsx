@@ -17,7 +17,7 @@ type Props = {
 const Product = ({ item, selectedProduct, setSelectedProduct }: Props) => {
   const itemVMId = item.id.toString().length === 1 ? `00${item.id}` : item.id;
   
-  const productImgClassName = classNames('productImg', {selected: selectedProduct === item.id && window.matchMedia('(max-width: 767px)').matches})
+  const productImgClassName = classNames('productImg', {selected: selectedProduct === item.id && window.matchMedia('(max-width: 767px)').matches}, {unavailable: selectedProduct === item.id && item.quantity === 0 && window.matchMedia('(max-width: 767px)').matches})
 
   const onSelectHandler = (event: MouseEvent<HTMLDivElement>): void => {
     const target = event.currentTarget as HTMLDivElement;

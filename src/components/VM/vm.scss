@@ -202,7 +202,7 @@
           "adOnigiri adOnigiri adReward";
         .adLimited {
           grid-area: adLimited;
-          font-family: cursive;
+          font-family: $fourthFontFamily;
           font-size: 2rem;
           color: #fff;
           display: flex;
@@ -211,6 +211,7 @@
           background-image: linear-gradient(90deg, #090979 0%, #094c79 35%, #00d4ff 100%);
           position: relative;
           overflow: hidden;
+          padding: 1rem;
           .limitedBanner {
             position: absolute;
             top: 0;
@@ -369,6 +370,14 @@
               0 0 0.4rem $okColor,
               0 0 0.4rem $okColor,
               inset 0 0 1.3rem $okColor;
+            }
+            &.unavailable {
+              box-shadow: 0 0 .2rem #fff,
+              0 0 .1rem #fff,
+              0 0 1rem $alertColor,
+              0 0 0.4rem $alertColor,
+              0 0 0.4rem $alertColor,
+              inset 0 0 1.3rem $alertColor;
             }
           }
         }
