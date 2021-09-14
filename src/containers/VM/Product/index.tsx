@@ -11,6 +11,7 @@ import { setSelectedProduct } from '../../../actions/vm';
 
 const mapStateToProps = (state: IVMState, ownProps: IProduct) => ({
   item: ownProps,
+  selectedProduct: state.selectedProduct,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

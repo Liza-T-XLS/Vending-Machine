@@ -319,38 +319,38 @@
           -moz-animation: bannermove 8s linear infinite;
           animation: bannermove 8s linear infinite;
           transition: all 2s;
-          @keyframes bannermove {
-           0% {
-            transform: translate(0, 0);
-            -ms-transform: translate(0, 0);
-           }
-           100% {
-            transform: translate(-100%, 0);
-            -ms-transform: translate(-100%, 0);
-           }
-          }
-          @-webkit-keyframes bannermove {
-            0% {
-              -webkit-transform: translate(0, 0);
-            }
-            100% {
-              -webkit-transform: translate(-100%, 0);
-            }
-          }
-          @-moz-keyframes bannermove {
-            0% {
-              -moz-transform: translate(0, 0);
-            }
-            100% {
-              -moz-transform: translate(-100%, 0);
-            }
-          }
         }
         .message:after {
           content:attr(data-text);
           position:absolute;
           white-space:nowrap;
           padding-left: 2rem;
+        }
+        @keyframes bannermove {
+          0% {
+           transform: translate(0, 0);
+           -ms-transform: translate(0, 0);
+          }
+          100% {
+           transform: translate(-100%, 0);
+           -ms-transform: translate(-100%, 0);
+          }
+        }
+        @-webkit-keyframes bannermove {
+          0% {
+            -webkit-transform: translate(0, 0);
+          }
+          100% {
+            -webkit-transform: translate(-100%, 0);
+          }
+        }
+        @-moz-keyframes bannermove {
+          0% {
+            -moz-transform: translate(0, 0);
+          }
+          100% {
+            -moz-transform: translate(-100%, 0);
+          }
         }
       }
       .products {
@@ -360,6 +360,18 @@
         grid-template-rows: 6rem 6rem 6rem; 
         row-gap: 1rem;
         height: 50%;
+        .product {
+          .productImg {
+            &.selected {
+              box-shadow: 0 0 .2rem #fff,
+              0 0 .1rem #fff,
+              0 0 1rem #00ba7c,
+              0 0 0.4rem #00ba7c,
+              0 0 0.4rem #00ba7c,
+              inset 0 0 1.3rem #00ba7c;
+            }
+          }
+        }
       }
       .mobileActionButtons {
         display: block;
