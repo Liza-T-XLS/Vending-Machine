@@ -290,7 +290,7 @@
   }
 }
 
-@media (max-width: $mobileBreakPoint) {
+@media (max-width: $tabletBreakPoint) {
   .vm {
     width: 90%;
     .left {
@@ -391,6 +391,46 @@
     .right {
       display: none;
     }
+  }
+}
+
+@media (min-width: $mobileBreakPoint) and (max-width: $tabletBreakPoint) {
+  .vm {
+    width: 75%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: $desktopBreakPoint) {
+  .vm {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    height: calc(85vh - 6rem);
+    width: 80%;
+    .left {
+      .sign {
+        font-size: 1.5rem;
+      }
+      .products {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 7rem 7rem 7rem; 
+        column-gap: 5%;
+        row-gap: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: $largeDesktopBreakPoint) {
+  .vm {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .vm {
+    width: 60%;
   }
 }
 
