@@ -1,6 +1,7 @@
 // == Imports
 
 import React, { MouseEvent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './cardReader.scss';
@@ -33,6 +34,15 @@ const CardReader = ({ inventory, selectedProduct, processOrder, pickupBoxProduct
       <img className="creditCardImg" src={creditCard} alt="creditCard" />
     </div>
   );
+};
+
+// == PropTypes
+
+CardReader.propTypes = {
+  inventory: PropTypes.array.isRequired,
+  selectedProduct: PropTypes.number.isRequired,
+  processOrder: PropTypes.func.isRequired,
+  pickupBoxProduct: PropTypes.number.isRequired,
 };
 
 // == Export

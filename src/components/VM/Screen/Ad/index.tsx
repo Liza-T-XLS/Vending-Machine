@@ -1,6 +1,7 @@
 // == Imports
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import prize from '../../../../images/prize.svg';
@@ -41,6 +42,13 @@ const Ad = ({ purchaseCounter }: Props) => {
     </div>
   );
 };
+
+// == PropTypes
+
+Ad.propTypes = {
+  purchaseCounter: PropTypes.number.isRequired,
+};
+
 // == Export
 
 export default Ad;

@@ -1,6 +1,7 @@
 // == Imports
 
 import React, { MouseEvent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // == Component
@@ -36,6 +37,14 @@ const Pad = ({ selectedProduct, setSelectedProduct, rewardsProgramStatus }: Prop
       )})}
     </div>
   )
+};
+
+// == PropTypes
+
+Pad.propTypes = {
+  selectedProduct: PropTypes.number.isRequired,
+  setSelectedProduct: PropTypes.func.isRequired,
+  rewardsProgramStatus: PropTypes.bool.isRequired,
 };
 
 // == Export

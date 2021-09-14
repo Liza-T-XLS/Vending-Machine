@@ -1,6 +1,7 @@
 // == Imports
 
 import React, { MouseEvent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './refillButton.scss';
@@ -29,6 +30,13 @@ const RefillButton = ({ setRefillStatus, refillMachine }: Props) => {
       <img className="wheelbarrowImg" src={wheelbarrow} alt="wheelbarrow"/>
     </div>
   );
+};
+
+// == PropTypes
+
+RefillButton.propTypes = {
+  setRefillStatus: PropTypes.func.isRequired,
+  refillMachine: PropTypes.func.isRequired,
 };
 
 // == Export

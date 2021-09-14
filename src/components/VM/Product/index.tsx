@@ -1,6 +1,7 @@
 // == Imports
 
 import React, { MouseEvent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { IProduct } from '../../../typings';
@@ -31,6 +32,15 @@ const Product = ({ item, selectedProduct, setSelectedProduct }: Props) => {
     </div>
   );
 };
+
+// == PropTypes
+
+Product.propTypes = {
+  // item: PropTypes.object.isRequired,
+  selectedProduct: PropTypes.number.isRequired,
+  setSelectedProduct: PropTypes.func.isRequired,
+};
+
 // == Export
 
 export default Product;

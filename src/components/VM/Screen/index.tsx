@@ -1,6 +1,7 @@
 // == Imports
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { TInventory } from '../../../typings';
 
@@ -46,6 +47,15 @@ const Screen = ({ inventory, selectedProduct, pickupBoxProduct, refillStatus }: 
       )}
     </div>
   );
+};
+
+// == PropTypes
+
+Screen.propTypes = {
+  inventory: PropTypes.array.isRequired,
+  selectedProduct: PropTypes.number.isRequired,
+  pickupBoxProduct: PropTypes.number.isRequired,
+  refillStatus: PropTypes.bool.isRequired,
 };
 
 // == Export

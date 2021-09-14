@@ -1,6 +1,7 @@
 // == Imports
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Component
 
@@ -13,6 +14,12 @@ const Instructions = ({ instructionsMsg }: Props) => (
       <p className="message" data-text={instructionsMsg}>{instructionsMsg}</p>
     </div>
 );
+
+// == PropTypes
+
+Instructions.propTypes = {
+  instructionsMsg: PropTypes.string.isRequired,
+};
 
 // == Export
 

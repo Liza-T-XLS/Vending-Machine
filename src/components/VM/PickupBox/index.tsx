@@ -1,6 +1,7 @@
 // == Imports
 
 import React, { MouseEvent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { TInventory } from '../../../typings';
@@ -28,6 +29,14 @@ const PickupBox = ({ inventory, pickupBoxProduct, emptyPickupBox }: Props) => {
       )}
     </div>
   );
+};
+
+// == PropTypes
+
+PickupBox.propTypes = {
+  inventory: PropTypes.array.isRequired,
+  pickupBoxProduct: PropTypes.number.isRequired,
+  emptyPickupBox: PropTypes.func.isRequired,
 };
 
 // == Export
