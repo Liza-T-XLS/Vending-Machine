@@ -10,6 +10,7 @@ import Screen from '../../containers/VM/Screen';
 import CardReader from '../../containers/VM/CardReader';
 import PickupBox from '../../containers/VM/PickupBox';
 import RefillButton from '../../containers/VM/RefillButton';
+import Instructions from '../../containers/VM/Instructions';
 
 import { TInventory } from '../../typings';
 
@@ -28,11 +29,13 @@ const VM = ({ inventory, purchaseCounter, activateRewardsProgram, rewardsProgram
       activateRewardsProgram();
     };
   }, [activateRewardsProgram, purchaseCounter]);
+  
   return (
     <main>
       <div className="vm">
         <div className="left">
           <div className="sign">Lifesaver</div>
+          <Instructions />
           {!rewardsProgramStatus && (
             <div className="products">
               {inventory.map((item) => (
@@ -48,6 +51,10 @@ const VM = ({ inventory, purchaseCounter, activateRewardsProgram, rewardsProgram
               ))}
             </div>
           )}
+          <div className="mobileActionButtons">
+            <CardReader />
+            <RefillButton />
+          </div>
           <PickupBox />
         </div>
         <div className="right">

@@ -1,15 +1,14 @@
 // == Imports
 
 import { connect } from 'react-redux';
-import Screen from '../../../components/VM/Screen';
-import { IVMState } from '../../../typings';
 import { Dispatch } from 'redux';
 
+import { IVMState } from '../../../typings';
+
+import Instructions from '../../../components/VM/Instructions';
+
 const mapStateToProps = (state: IVMState) => ({
-  inventory: state.inventory,
-  selectedProduct: state.selectedProduct,
-  pickupBoxProduct: state.pickupBoxProduct,
-  refillStatus: state.refillStatus,
+  instructionsMsg: state.instructionsMsg,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -21,4 +20,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Screen);
+)(Instructions);

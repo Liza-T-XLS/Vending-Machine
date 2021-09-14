@@ -7,12 +7,16 @@ import { IVMState, IProduct } from '../../../typings';
 
 import Product from '../../../components/VM/Product';
 
+import { setSelectedProduct } from '../../../actions/vm';
+
 const mapStateToProps = (state: IVMState, ownProps: IProduct) => ({
   item: ownProps,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-
+  setSelectedProduct: (productId: number) => {
+    dispatch(setSelectedProduct(productId));
+  },
 });
 
 // == Export

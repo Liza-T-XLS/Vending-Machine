@@ -4,6 +4,7 @@ import React from 'react';
 
 import { TInventory } from '../../../typings';
 
+import Instructions from '../../../containers/VM/Instructions';
 import Ad from '../../../containers/VM/Screen/Ad';
 import Pad from '../../../containers/VM/Screen/Pad';
 
@@ -14,21 +15,18 @@ import deliveryTruck from '../../../images/deliveryTruck.svg';
 type Props = {
   inventory: TInventory,
   selectedProduct: number,
-  instructionsMsg: string,
   pickupBoxProduct: number,
   refillStatus: boolean,
 };
 
-const Screen = ({ inventory, selectedProduct, instructionsMsg, pickupBoxProduct, refillStatus }: Props) => {
+const Screen = ({ inventory, selectedProduct, pickupBoxProduct, refillStatus }: Props) => {
   const selectedProductImg = inventory.find(item => item.id === selectedProduct)?.productImg;
   const selectedProductQty = inventory.find(item => item.id === selectedProduct)?.quantity;
   const selectedProductQtyMsg = selectedProductQty !== undefined && selectedProductQty <= 1 ? `${selectedProductQty} unit left` : `${selectedProductQty} units left`;
 
   return (
     <div className="screen">
-      <div className="instructions">
-        <p className="message">{instructionsMsg}</p>
-      </div>
+      <Instructions />
       {pickupBoxProduct === 0 && refillStatus === false && (
         <Pad />
       )}

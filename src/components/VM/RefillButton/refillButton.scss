@@ -1,3 +1,5 @@
+@import '../../../styles/vars';
+
 .refillButton {
   margin: 1rem;
   height: 5rem;
@@ -6,10 +8,10 @@
   background-color: #fff;
   box-shadow: 0 0 .2rem #fff,
   0 0 .2rem #fff,
-  0 0 2rem #f4dc26,
-  0 0 0.8rem #f4dc26,
-  0 0 2.8rem #f4dc26,
-  inset 0 0 1.3rem #f4dc26;
+  0 0 2rem $vmColor,
+  0 0 0.8rem $vmColor,
+  0 0 2.8rem $vmColor,
+  inset 0 0 1.3rem $vmColor;
   border-radius: 1rem;
   .wheelbarrowImg {
     height: 75%;

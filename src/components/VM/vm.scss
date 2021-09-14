@@ -1,7 +1,7 @@
 @import '../../styles/vars';
 
 .vm {
-  background-color: #f4dc26;
+  background-color: $vmColor;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: auto;
@@ -28,23 +28,30 @@
       border-radius: 1rem;
       box-shadow: 0 0 .2rem #fff,
       0 0 .2rem #fff,
-      0 0 2rem #f4dc26,
-      0 0 0.8rem #f4dc26,
-      0 0 2.8rem #f4dc26,
-      inset 0 0 1.3rem #f4dc26;
+      0 0 2rem $vmColor,
+      0 0 0.8rem $vmColor,
+      0 0 2.8rem $vmColor,
+      inset 0 0 1.3rem $vmColor;
+    }
+    .instructions {
+      display: none;
     }
     .products {
       margin: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      display: grid;
+      grid-template-columns: 28% 28% 28%;
+      grid-template-rows: 7rem 7rem 7rem; 
+      column-gap: 8%;
+      row-gap: 2rem;
+      justify-items: center;
       align-items: center;
       height: 60%;
       .product {
-        width: calc((100% / 3) - 2rem);
-        height: calc((100% / 3) - 2rem);
+        width: 100%;
+        height: 100%;
         box-sizing: border-box;
-        margin: 1rem;
         border: 0.2rem solid #fff;
         border-radius: 1rem;
         display: flex;
@@ -56,10 +63,10 @@
           padding: 0.5rem;
           box-shadow: 0 0 .2rem #fff,
           0 0 .2rem #fff,
-          0 0 2rem #f4dc26,
-          0 0 0.8rem #f4dc26,
-          0 0 2.8rem #f4dc26,
-          inset 0 0 1.3rem #f4dc26;
+          0 0 2rem $vmColor,
+          0 0 0.8rem $vmColor,
+          0 0 2.8rem $vmColor,
+          inset 0 0 1.3rem $vmColor;
           border-top-right-radius: 1rem;
           border-top-left-radius: 1rem;
         }
@@ -73,6 +80,9 @@
           font-family: $secondaryFontFamily;
         }
       }
+    }
+    .mobileActionButtons {
+      display: none;
     }
     .pickupBox {
       margin: 2rem;
@@ -94,7 +104,7 @@
         position: absolute;
         margin-right: 2rem;
         margin-left: 2rem;
-        top: 3rem;
+        bottom: 0rem;
         height: 0;
         width: calc(100% - 7rem);
         border-bottom: 3rem solid rgba(0, 0, 0, 0.2);
@@ -127,7 +137,7 @@
         border-top-left-radius: 0.4rem;
         border-top-right-radius: 0.4rem;
         background-color: black;
-        color: #f4dc26;
+        color: $vmColor;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -159,18 +169,18 @@
           /* Larger blur radius */
           box-shadow: 0 0 .2rem #fff,
           0 0 .2rem #fff,
-          0 0 2rem #f4dc26,
+          0 0 2rem $vmColor,
           0 0 0.8rem #317ed0,
-          0 0 2.8rem #f4dc26,
+          0 0 2.8rem $vmColor,
           inset 0 0 1.3rem #317ed0;
         }
        0% {
           /* Slightly smaller blur radius */
           box-shadow: 0 0 .1rem #fff,
           0 0 .17rem #fff,
-          0 0 1.7rem #f4dc26,
+          0 0 1.7rem $vmColor,
           0 0 0.7rem #317ed0,
-          0 0 1.8rem #f4dc26,
+          0 0 1.8rem $vmColor,
           inset 0 0 1rem #317ed0;
         }
       }
@@ -277,5 +287,103 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: $mobileBreakPoint) {
+  .vm {
+    width: 90%;
+    .left {
+      width: 100%;
+      position: relative;
+      .sign {
+        font-size: 1.75rem;
+      }
+      .instructions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 0.5rem;
+        background-color: black;
+        color: $vmColor;
+        font-family: $secondaryFontFamily;
+        overflow: hidden;
+        white-space: nowrap;
+        .message {
+          display: inline-block;
+          padding-left: 100%;
+          -webkit-animation: bannermove 8s linear infinite;
+          -moz-animation: bannermove 8s linear infinite;
+          animation: bannermove 8s linear infinite;
+          transition: all 2s;
+          @keyframes bannermove {
+           0% {
+            transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+           }
+           100% {
+            transform: translate(-100%, 0);
+            -ms-transform: translate(-100%, 0);
+           }
+          }
+          @-webkit-keyframes bannermove {
+            0% {
+              -webkit-transform: translate(0, 0);
+            }
+            100% {
+              -webkit-transform: translate(-100%, 0);
+            }
+          }
+          @-moz-keyframes bannermove {
+            0% {
+              -moz-transform: translate(0, 0);
+            }
+            100% {
+              -moz-transform: translate(-100%, 0);
+            }
+          }
+        }
+        .message:after {
+          content:attr(data-text);
+          position:absolute;
+          white-space:nowrap;
+          padding-left: 2rem;
+        }
+      }
+      .products {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-right: 6rem;
+        grid-template-rows: 6rem 6rem 6rem; 
+        row-gap: 1rem;
+        height: 50%;
+      }
+      .mobileActionButtons {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: calc(50% - 5rem);
+        .cardReader {
+          height: 4rem;
+          width: 4rem;
+        }
+        .refillButton {
+          height: 4rem;
+          width: 4rem;
+        }
+      }
+    }
+    .right {
+      display: none;
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion) { 
+  .bannerMsg {
+    animation: none;
   }
 }

@@ -14,22 +14,24 @@
     border-radius: 1rem;
     box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
-    0 0 2rem #f4dc26,
-    0 0 0.8rem #f4dc26,
-    0 0 2.8rem #f4dc26,
-    inset 0 0 1.3rem #f4dc26;
+    0 0 2rem $vmColor,
+    0 0 0.8rem $vmColor,
+    0 0 2.8rem $vmColor,
+    inset 0 0 1.3rem $vmColor;
     letter-spacing: 1rem;
     color: #fff;
     text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
-    0 0 42px #f4dc26,
-    0 0 82px #f4dc26,
-    0 0 92px #f4dc26,
-    0 0 102px #f4dc26,
-    0 0 151px #f4dc26;
+    0 0 42px $vmColor,
+    0 0 82px $vmColor,
+    0 0 92px $vmColor,
+    0 0 102px $vmColor,
+    0 0 151px $vmColor;
     .signSpan {
+      -webkit-animation: flicker 1.5s infinite alternate;
+      -moz-animation: flicker 1.5s infinite alternate;
       animation: flicker 1.5s infinite alternate;
     }
     @keyframes flicker {
@@ -38,11 +40,43 @@
           0 0 4px #fff,
           0 0 11px #fff,
           0 0 19px #fff,
-          0 0 40px #f4dc26,
-          0 0 80px #f4dc26,
-          0 0 90px #f4dc26,
-          0 0 100px #f4dc26,
-          0 0 150px #f4dc26;
+          0 0 40px $vmColor,
+          0 0 80px $vmColor,
+          0 0 90px $vmColor,
+          0 0 100px $vmColor,
+          0 0 150px $vmColor;
+      }
+      20%, 24%, 55% {       
+        text-shadow: none;
+      }
+    }
+    @-webkit-keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+          0 0 4px #fff,
+          0 0 11px #fff,
+          0 0 19px #fff,
+          0 0 40px $vmColor,
+          0 0 80px $vmColor,
+          0 0 90px $vmColor,
+          0 0 100px $vmColor,
+          0 0 150px $vmColor;
+      }
+      20%, 24%, 55% {       
+        text-shadow: none;
+      }
+    }
+    @-moz-keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+          0 0 4px #fff,
+          0 0 11px #fff,
+          0 0 19px #fff,
+          0 0 40px $vmColor,
+          0 0 80px $vmColor,
+          0 0 90px $vmColor,
+          0 0 100px $vmColor,
+          0 0 150px $vmColor;
       }
       20%, 24%, 55% {       
         text-shadow: none;
@@ -51,9 +85,15 @@
   }
 }
 
-
 @media screen and (prefers-reduced-motion) { 
   .signSpan {
     animation: none;
+  }
+}
+
+@media (max-width: $mobileBreakPoint) {
+  .header {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
