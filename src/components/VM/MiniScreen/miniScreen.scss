@@ -1,0 +1,40 @@
+@import '../../../styles/vars';
+
+.miniScreen {
+  font-family: $secondaryFontFamily;
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin: 1rem;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  animation: pulsate 0.11s ease-in-out infinite alternate;
+  @keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+      box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem $vmColor,
+      0 0 0.8rem #317ed0,
+      0 0 2.8rem $vmColor,
+      inset 0 0 1.3rem #317ed0;
+    }
+    0% {
+      /* Slightly smaller blur radius */
+      box-shadow: 0 0 .1rem #fff,
+      0 0 .17rem #fff,
+      0 0 1.7rem $vmColor,
+      0 0 0.7rem #317ed0,
+      0 0 1.8rem $vmColor,
+      inset 0 0 1rem #317ed0;
+    }
+  }
+  .adReward {
+    height: 50%;
+    padding: 0.3rem;
+    .prize {
+      height: 1rem;
+    }
+  }
+}

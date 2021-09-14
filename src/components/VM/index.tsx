@@ -11,6 +11,7 @@ import CardReader from '../../containers/VM/CardReader';
 import PickupBox from '../../containers/VM/PickupBox';
 import RefillButton from '../../containers/VM/RefillButton';
 import Instructions from '../../containers/VM/Instructions';
+import MiniScreen from '../../components/VM/MiniScreen';
 
 import { TInventory } from '../../typings';
 
@@ -51,7 +52,8 @@ const VM = ({ inventory, purchaseCounter, activateRewardsProgram, rewardsProgram
               ))}
             </div>
           )}
-          <div className="mobileActionButtons">
+          <div className="mobileMiniFeatures">
+            <MiniScreen />
             <CardReader />
             <RefillButton />
           </div>
