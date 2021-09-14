@@ -159,7 +159,7 @@
           border-radius: 1rem;
           padding: 0.5rem;
           &:hover, &:active, &.selected {
-            color: #00ba7c;
+            color: $okColor;
             background-color: rgba(0, 186, 124, 0.2);
           }
         }
@@ -365,10 +365,10 @@
             &.selected {
               box-shadow: 0 0 .2rem #fff,
               0 0 .1rem #fff,
-              0 0 1rem #00ba7c,
-              0 0 0.4rem #00ba7c,
-              0 0 0.4rem #00ba7c,
-              inset 0 0 1.3rem #00ba7c;
+              0 0 1rem $okColor,
+              0 0 0.4rem $okColor,
+              0 0 0.4rem $okColor,
+              inset 0 0 1.3rem $okColor;
             }
           }
         }

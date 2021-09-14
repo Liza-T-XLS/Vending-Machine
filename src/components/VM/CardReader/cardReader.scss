@@ -20,27 +20,27 @@
   &:hover {
     box-shadow: 0 0 .2rem #fff,
     0 0 .1rem #fff,
-    0 0 1rem #0070ba,
-    0 0 0.4rem #0070ba,
-    0 0 0.4rem #0070ba,
-    inset 0 0 1.3rem #0070ba;
+    0 0 1rem $availableColor,
+    0 0 0.4rem $availableColor,
+    0 0 0.4rem $availableColor,
+    inset 0 0 1.3rem $availableColor;
   }
   &:active {
     box-shadow: 0 0 .2rem #fff,
     0 0 .1rem #fff,
-    0 0 1rem #00ba7c,
-    0 0 0.4rem #00ba7c,
-    0 0 0.4rem #00ba7c,
-    inset 0 0 1.3rem #00ba7c;
+    0 0 1rem $okColor,
+    0 0 0.4rem $okColor,
+    0 0 0.4rem $okColor,
+    inset 0 0 1.3rem $okColor;
   }
   &.unavailable{
     &:hover, &:active {
       box-shadow: 0 0 .2rem #fff,
       0 0 .1rem #fff,
-      0 0 1rem #e92929,
-      0 0 0.4rem #e92929,
-      0 0 0.4rem  #e92929,
-      inset 0 0 1.3rem #e92929;
+      0 0 1rem $alertColor,
+      0 0 0.4rem $alertColor,
+      0 0 0.4rem  $alertColor,
+      inset 0 0 1.3rem $alertColor;
     }
   }
 }
