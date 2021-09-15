@@ -30,7 +30,7 @@ const vmReducer = (state = initialState, action: AnyAction) => {
       if(action.productId > 0 && selectedProduct !== undefined && selectedProduct.quantity > 0) {
         newMsg = 'Please proceed to payment using the card reader (or choose another product)';
       } else if (action.productId > 0 && selectedProduct !== undefined && selectedProduct.quantity === 0) {
-        newMsg = 'Sorry, the product you have selected is currently not available, please choose another product';
+        newMsg = 'Sorry, the product you have selected is currently unavailable, please choose another product';
       };
       return {
         ...state,
